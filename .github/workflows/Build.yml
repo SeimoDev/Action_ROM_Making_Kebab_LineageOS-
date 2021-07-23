@@ -16,6 +16,7 @@ on:
   #   types: [started]
 
 env:
+  dev_name: seimo
   
 
 jobs:
