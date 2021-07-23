@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: bt
-      run: |
-      sudo apt-get -E curl -y
-      curl -sSO http://download.bt.cn/install/install_panel.sh && bash install_panel.sh
-      bt 14
+      - name: bt
+        run: |
+          sudo apt-get -E curl -y
+          curl -sSO http://download.bt.cn/install/install_panel.sh && bash install_panel.sh
+          bt 14
