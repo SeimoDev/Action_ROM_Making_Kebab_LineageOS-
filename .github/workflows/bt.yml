@@ -1,0 +1,31 @@
+name: bt 
+
+on:
+  #  release:
+  #    types: [published]
+  #  push:
+  #    branches:
+  #      - master
+  #    paths:
+  #      - '.config'
+  #  schedule:
+  #    - cron: 0 8 * * 5
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # watch:
+  #   types: [started]
+
+env:
+  dev_name: seimo
+
+
+jobs:
+  build: 
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: bt
+      run: |
+      sudo apt-get -E curl -y
+      curl -sSO http://download.bt.cn/install/install_panel.sh && bash install_panel.sh
+      bt 14

@@ -34,6 +34,10 @@ jobs:
           git config --global user.name "seimo_official"
           git config --global user.email "2789263103@qq.com"
 
+      - name: 环境检测
+        run: |
+          ls
+
       - name: 下载repo
         run: |
           mkdir ~/.bin
