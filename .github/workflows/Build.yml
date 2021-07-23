@@ -37,6 +37,7 @@ jobs:
       - name: 环境检测
         run: |
           ls
+          tree -C -d -L 6
 
       - name: 下载repo
         run: |
