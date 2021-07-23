@@ -39,7 +39,7 @@ jobs:
           ls
           tree -C -d -L 6
 
-      - name: 下载repo
+      - name: 同步源码+编译系统
         run: |
           mkdir ~/.bin
           PATH=~/.bin:$PATH
@@ -51,7 +51,9 @@ jobs:
           repo init --no-clone-bundle -u git://github.com/LineageOS/android.git -b lineage-17.1
           repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
           source build/envsetup.sh
+          breakfast kebab
+          ls
+
       
-      - name: 同步源码和环境
-        run: |
+      
          
