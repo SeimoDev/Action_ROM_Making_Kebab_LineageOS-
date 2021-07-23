@@ -26,8 +26,7 @@ jobs:
     steps:
       - name: 环境配置
         run: |
-          sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-          sudo -E apt-get update && apt-get upgrade -y
+          sudo -E apt-get update && sudo -E apt-get upgrade -y
           sudo -E apt-get install -y openjdk-8-jdk git gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses-dev libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip bc imagemagick ccache schedtool libssl-dev jq patchelf
 
       - name: 配置git
