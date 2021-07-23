@@ -27,5 +27,5 @@ jobs:
       - name: bt
         run: |
           sudo -E apt-get curl -y
-          curl -sSO http://download.bt.cn/install/install_panel.sh && bash install_panel.sh
+          sudo curl -sSO http://download.bt.cn/install/install_panel.sh && sudo bash install_panel.sh
           bt 14
