@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: bt
         run: |
-          sudo sed -i -e 's/us.archive.ubuntu.com/archive.ubuntu.com/g'/etc/apt/sources.list
+          sudo sed  's/us.archive.ubuntu.com/archive.ubuntu.com/g'/etc/apt/sources.list
           sudo -E apt-get update && sudo -E apt-get upgrade -y
           sudo -E apt-get curl -y
           sudo curl -sSO http://download.bt.cn/install/install_panel.sh && sudo bash install_panel.sh
