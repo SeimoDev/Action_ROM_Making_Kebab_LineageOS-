@@ -1,0 +1,48 @@
+name: LineageOS 
+
+on:
+  #  release:
+  #    types: [published]
+  #  push:
+  #    branches:
+  #      - master
+  #    paths:
+  #      - '.config'
+  #  schedule:
+  #    - cron: 0 8 * * 5
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # watch:
+  #   types: [started]
+
+env:
+  
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: 环境配置
+        run: |
+          apt-get update && apt-get upgrade -y
+          apt-get install -y openjdk-8-jdk git gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses-dev libncurses5 x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc unzip bc imagemagick ccache schedtool libssl-dev jq patchelf
+
+      - name: 配置git
+        run: |
+          git config --global user.name "seimo_official"
+          git config --global user.email "2789263103@qq.com"
+
+      - name: 下载repo
+        run: |
+          mkdir ~/.bin
+          PATH=~/.bin:$PATH
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+          chmod +x ~/.bin/repo
+      
+      - name: 同步源码和环境
+        run: |
+          mkdir LineageOS && cd LineageOS
+          repo init --no-clone-bundle -u git://github.com/LineageOS/android.git -b lineage-17.1
+          repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+          source build/envsetup.sh
